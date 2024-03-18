@@ -61,8 +61,8 @@ const SearchBar = () => {
                   key={subreddit.id}
                   onSelect={(subredditName) => {
                     router.push(`/r/${subredditName}`);
-                    setInput("");
                     router.refresh();
+                    setInput("");
                   }}
                   value={subreddit.name}
                 >
