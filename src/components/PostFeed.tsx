@@ -7,7 +7,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useEffect, useRef } from "react";
-import Post from "./Post";
+import PostDisplay from "./PostDisplay";
 
 interface PostFeedProps {
   initialPosts: Array<ExtendedPost>;
@@ -67,7 +67,7 @@ const PostFeed = ({ initialPosts, subredditName }: PostFeedProps) => {
         if (index === posts.length - 1) {
           return (
             <li key={post.id} ref={ref}>
-              <Post
+              <PostDisplay
                 subredditName={post.subreddit.name}
                 post={post}
                 commentAmount={post.comments.length}
@@ -79,7 +79,7 @@ const PostFeed = ({ initialPosts, subredditName }: PostFeedProps) => {
         } else {
           return (
             <li key={post.id}>
-              <Post
+              <PostDisplay
                 subredditName={post.subreddit.name}
                 post={post}
                 commentAmount={post.comments.length}

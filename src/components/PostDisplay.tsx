@@ -1,5 +1,5 @@
 import { formatTimeToNow } from "@/lib/utils";
-import { Post, User, Vote } from "@prisma/client";
+import { Post as PostDisplay, User, Vote } from "@prisma/client";
 import { MessageSquare } from "lucide-react";
 import { useRef } from "react";
 import EditorOutput from "./EditorOutput";
@@ -9,7 +9,7 @@ type PartialVote = Pick<Vote, "type">;
 
 interface PostProps {
   subredditName: string;
-  post: Post & {
+  post: PostDisplay & {
     author: User;
     votes: Vote[];
   };
@@ -18,7 +18,7 @@ interface PostProps {
   currentVote?: PartialVote;
 }
 
-const Post = ({
+const PostDisplay = ({
   subredditName,
   post,
   commentAmount,
@@ -80,4 +80,4 @@ const Post = ({
   );
 };
 
-export default Post;
+export default PostDisplay;
